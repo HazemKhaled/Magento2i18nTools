@@ -16,8 +16,9 @@ var path = 'ar_SA/',
 
     // Dependacies
     fs = require('fs'),
-    convert = require('xliff-to-object'),
     basicCSV = require("basic-csv"),
+    xml2js = require('xml2js'),
+    xmlParser = new xml2js.Parser(),
 
     // Load files
     sourceFile = fs.readFileSync(path + 'source.xliff', 'utf8'),
@@ -28,6 +29,16 @@ var path = 'ar_SA/',
     targetKeys = {},
     files = [],
     flag = 0;
+
+/*
+ * @param {string} str - an XLIFF document as a string
+ * @param {function} cb - a mandatory callback for the output
+ */
+function parseXML(str, cb) {
+    xmlParser.parseString(str, (err, data) => {
+        cb(data.xliff.file);
+    });
+}
 
 // parse csv file
 basicCSV.readCSV(path + "source.csv", function(error, rows) {
@@ -51,8 +62,7 @@ basicCSV.readCSV(path + "source.csv", function(error, rows) {
 });
 
 // Load source xliff file to get translated keys
-convert(sourceFile, function(sourceObject) {
-
+parseXML(sourceFile, function(sourceObject) {
     sourceObject.forEach($_ => {
         if (!$_.body[0]['trans-unit']) {
             return;
@@ -73,7 +83,7 @@ convert(sourceFile, function(sourceObject) {
 });
 
 // Load target xliff to get needs-translation keys with ids and file info
-convert(targetFile, function(targetObject) {
+parseXML(targetFile, function(targetObject) {
 
     targetObject.forEach($_ => {
 

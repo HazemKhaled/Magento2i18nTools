@@ -8,7 +8,6 @@
     "license": "MIT",
     "dependencies": {
         "basic-csv": "0.0.2",
-        "xliff-to-object": "0.0.8",
         "xml-js": "^0.8.7",
         "xml2js": "^0.4.16"
     }
