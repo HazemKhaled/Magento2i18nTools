@@ -1,0 +1,15 @@
+{
+    "name": "magentoi18ntools",
+    "version": "1.0.0",
+    "description": "Migrate Magneto 1 csv language files to Magneto 2 and more",
+    "main": "index.js",
+    "scripts": {},
+    "author": "Hazem Khaled <hazem.khaled@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "basic-csv": "0.0.2",
+        "xliff-to-object": "0.0.8",
+        "xml-js": "^0.8.7",
+        "xml2js": "^0.4.16"
+    }
+}
