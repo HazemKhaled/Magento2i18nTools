@@ -4,7 +4,7 @@ Simply we comparing keys of Magneto 2 with Magneto 1 CSV files, to mirage it.
 
 # Is it working?
 
-I translated around 50% of Arabic and Turkish using this tool.
+I translated around 50% of Arabic and Turkish using this tool, check uploads on my [crowdin.com profile](https://crowdin.com/profile/hazem.khaled/activity).
 
 ## How to?
 
